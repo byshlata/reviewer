@@ -25,9 +25,8 @@ export const loadStateApp = (): UndefindType<InitialStateAppType> => {
     }
 
     return appInitialState;
-  } catch (err: any) {
-    throw new Error(err.message);
-  }
+    // eslint-disable-next-line no-empty
+  } catch (err: any) {}
 };
 
 export const saveState = (themeApp: ThemeType, languageApp: LanguageType): void => {
