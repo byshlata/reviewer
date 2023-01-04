@@ -6,6 +6,7 @@ import { breakIntoGroups, createValueTagsCloud } from 'utils';
 export const useTagsCloud = (tags: string[]): { tagsOut: TagsCloudType[] } => {
   const [tagsCloud, setTagsCloud] = useState<string[]>(tags);
   const [tagsCloudOut, setTagsCloudOut] = useState<TagsCloudType[]>([]);
+
   useEffect(() => {
     if (tags.length !== tagsCloud.length) {
       setTagsCloud(tags);
