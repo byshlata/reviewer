@@ -15,11 +15,11 @@ export const loadStateApp = (): UndefindType<InitialStateAppType> => {
     appSettings: { tags: [], category: [] },
   };
 
-  if (JSON.parse(themeApp || '') === Theme.Dark) {
+  if (themeApp && JSON.parse(themeApp || '') === Theme.Dark) {
     appInitialState.themeApp = themeAppDark;
   }
 
-  if (JSON.parse(languageApp || '') === Language.Russian) {
+  if (languageApp && JSON.parse(languageApp || '') === Language.Russian) {
     appInitialState.languageApp = Language.Russian;
   }
 
