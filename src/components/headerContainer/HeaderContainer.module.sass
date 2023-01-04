@@ -1,0 +1,22 @@
+@mixin flex($align, $justify)
+  display: flex
+  align-items: $align
+  justify-content: $justify
+  height: 100%
+
+.logoContainer
+  @include flex(center, center)
+
+.wrapper
+  @include flex(center, center)
+
+.switchContainer
+  margin-left: 10px
+  padding: 5px 0
+  @include flex(center, space-between)
+  flex-direction: column
+  box-sizing: border-box
+  height: 100%
+  width: 3rem
+
+

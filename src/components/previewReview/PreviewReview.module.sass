@@ -1,0 +1,29 @@
+.wrapper
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+  justify-content: space-between
+
+.item
+  width: 48%
+
+.headerPreviewItem
+  position: relative
+
+.button
+  position: absolute
+  display: flex
+  align-items: center
+  justify-content: center
+  top: 50%
+  left: 50%
+  transform: translate(-50%)
+  border-radius: 1rem
+  opacity: 0.5
+  z-index: 500
+  &:hover
+    opacity: 1
+
+@media (max-width: 1290px)
+  .item
+    width: 100%

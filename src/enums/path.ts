@@ -1,0 +1,15 @@
+export enum Path {
+  Root = '/',
+  Home = '/home',
+  AccountAdmin = '/account-admin',
+  Account = '/account',
+  Register = '/register',
+  Login = '/login',
+  CreateReview = '/create-review',
+  Review = '/review',
+  Reviews = '/reviews',
+  Value = ':value',
+  Edit = '/edit',
+  User = '/user',
+  Other = '*',
+}
