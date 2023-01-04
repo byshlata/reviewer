@@ -1,10 +1,9 @@
 import { Language, Theme } from 'enums';
 import { InitialStateAppType } from 'store';
 import { themeAppDark, themeAppLight } from 'theme';
-import { LanguageType, ThemeType } from 'types';
+import { LanguageType, ThemeType, UndefindType } from 'types';
 
-// eslint-disable-next-line consistent-return
-export const loadStateApp = (): InitialStateAppType | undefined => {
+export const loadStateApp = (): UndefindType<InitialStateAppType> => {
   try {
     const themeApp = localStorage.getItem('themeApp');
     const languageApp = localStorage.getItem('languageApp');
@@ -26,8 +25,9 @@ export const loadStateApp = (): InitialStateAppType | undefined => {
     }
 
     return appInitialState;
-    // eslint-disable-next-line no-empty
-  } catch (err) {}
+  } catch (err: any) {
+    throw new Error(err.message);
+  }
 };
 
 export const saveState = (themeApp: ThemeType, languageApp: LanguageType): void => {
