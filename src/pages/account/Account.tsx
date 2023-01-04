@@ -49,8 +49,6 @@ export const Account = (): ReactElement => {
     updateAvatar({ file });
   };
 
-  console.log(userShortInformation);
-
   return (
     <div>
       <div className={style.informationWrapper}>

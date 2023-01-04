@@ -26,9 +26,8 @@ export const loadStateApp = (): InitialStateAppType | undefined => {
     }
 
     return appInitialState;
-  } catch (err) {
-    console.log('Error get to Local Storage favorites movies state');
-  }
+    // eslint-disable-next-line no-empty
+  } catch (err) {}
 };
 
 export const saveState = (themeApp: ThemeType, languageApp: LanguageType): void => {
