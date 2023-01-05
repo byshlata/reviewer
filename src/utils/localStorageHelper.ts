@@ -22,7 +22,6 @@ export const loadStateApp = (): UndefindType<InitialStateAppType> => {
   if (languageApp && JSON.parse(languageApp || '') === Language.Russian) {
     appInitialState.languageApp = Language.Russian;
   }
-
   return appInitialState;
 };
 
