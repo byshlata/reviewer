@@ -11,3 +11,7 @@ export { useColumnsUserTable } from 'hooks/useColumnsUserTable';
 export { useParamsSkip } from './useParamsSkip';
 
 export { useColumnsAdminTable } from './useColumnsAdminTable';
+
+export { useAuthSocial } from './useAuthSocial';
+
+export { useTagsCloud } from './useTagsCloud';

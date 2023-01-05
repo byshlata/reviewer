@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { DataReviewType } from 'components/headerReviewPage/types/DataReviewType';
 import { PathAPI, TagRTKQuery } from 'enums';
 import {
+  AppSettingsResponseType,
   DataCommentType,
   DataTableUserType,
   Empty,
@@ -11,6 +12,7 @@ import {
   Nullable,
   ResponseType,
   ReviewResponseType,
+  ReviewsGetType,
   ReviewShortType,
   ReviewsSomeResponseType,
   ReviewUserTableType,
@@ -178,7 +180,7 @@ export const reviewAPI = createApi({
     }),
 
     getReviewsParams: builder.query<
-      ResponseType<ReviewsSomeResponseType<ReviewShortType>>,
+      AppSettingsResponseType & ReviewsGetType<ReviewShortType[]>,
       {
         count?: number;
         rating?: Nullable<string>;
@@ -191,9 +193,9 @@ export const reviewAPI = createApi({
         params: { rating, data, count, tag },
       }),
       transformResponse: (
-        response: ResponseType<ReviewsSomeResponseType<ReviewShortType>>,
+        response: AppSettingsResponseType & ReviewsGetType<ReviewShortType[]>,
       ) => transformResponseShortReviewData(response),
-      providesTags: [TagRTKQuery.Review, TagRTKQuery.Like, TagRTKQuery.Star],
+      providesTags: [TagRTKQuery.Like, TagRTKQuery.Star],
     }),
 
     getReview: builder.query<ResponseType<ReviewResponseType>, { id: string }>({

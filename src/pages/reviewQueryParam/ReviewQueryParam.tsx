@@ -22,5 +22,12 @@ export const ReviewQueryParam = (): ReactElement => {
     : undefined;
 
   const { data } = useGetReviewsParamsQuery({ tag, data: dataParam, rating });
-  return <span>{data?.reviews && <PreviewReview dataReview={data.reviews} />}</span>;
+
+  return (
+    <span>
+      {data?.reviewsSortData && <PreviewReview dataReview={data.reviewsSortData} />}
+      {data?.reviewsTag && <PreviewReview dataReview={data.reviewsTag} />}
+      {data?.reviewsSortRating && <PreviewReview dataReview={data.reviewsSortRating} />}
+    </span>
+  );
 };

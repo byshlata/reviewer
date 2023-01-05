@@ -71,3 +71,5 @@ export type { Empty } from './Empty';
 export type { UsersSomeResponseType } from './UsersSomeResponseType';
 
 export type { AdminTableType } from './AdminTableType';
+
+export type { ReviewsGetType } from './ReviewsGetType';

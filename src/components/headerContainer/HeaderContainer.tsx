@@ -8,13 +8,21 @@ import { useNavigate } from 'react-router-dom';
 
 import style from './HeaderContainer.module.sass';
 
-import { AvatarWithButton, ButtonLogo, Header, Logo, MenuApp } from 'components';
+import {
+  AvatarWithButton,
+  ButtonLogo,
+  Header,
+  LinerProgress,
+  Logo,
+  MenuApp,
+} from 'components';
 import { Language, Path, Theme } from 'enums';
 import { useAppDispatch } from 'hooks';
 import {
   changeLanguageApp,
   changeTheme,
   selectorIsAuth,
+  selectorIsProgress,
   selectorLanguageNow,
   selectorThemeNow,
   selectorUserAvatar,
@@ -25,6 +33,7 @@ import {
 
 export const HeaderContainer = (): ReactElement => {
   const dispatch = useAppDispatch();
+  const isProgress = useSelector(selectorIsProgress);
   const isAuth = useSelector(selectorIsAuth);
   const avatar = useSelector(selectorUserAvatar);
   const ratingUser = useSelector(selectorUserRating);
@@ -64,41 +73,44 @@ export const HeaderContainer = (): ReactElement => {
   };
 
   return (
-    <Header>
-      <div>
-        <ButtonLogo title="Reviewer" onClick={onClickLogo}>
-          <Logo width="25" />
-        </ButtonLogo>
-      </div>
-
-      {isAuth && <MenuApp user={userRights} />}
-
-      <div className={style.wrapper}>
-        <AvatarWithButton
-          rating={ratingUser}
-          avatar={avatar}
-          isAuth={!!isAuth}
-          onLogout={onLogout}
-          onLogin={onLogin}
-        />
-
-        <div className={style.switchContainer}>
-          <Switch
-            onChange={onChangeLanguage}
-            size="small"
-            checkedChildren="RU"
-            unCheckedChildren="EN"
-            checked={language === Language.English}
-          />
-          <Switch
-            onChange={onChangeTheme}
-            size="small"
-            checkedChildren="☀"
-            unCheckedChildren="☼"
-            checked={themeNow === Theme.Light}
-          />
+    <div style={{ position: 'relative', marginBottom: '1rem' }}>
+      <Header>
+        <div>
+          <ButtonLogo title="Reviewer" onClick={onClickLogo}>
+            <Logo width="25" />
+          </ButtonLogo>
         </div>
-      </div>
-    </Header>
+
+        {isAuth && <MenuApp user={userRights} />}
+
+        <div className={style.wrapper}>
+          <AvatarWithButton
+            rating={ratingUser}
+            avatar={avatar}
+            isAuth={!!isAuth}
+            onLogout={onLogout}
+            onLogin={onLogin}
+          />
+
+          <div className={style.switchContainer}>
+            <Switch
+              onChange={onChangeLanguage}
+              size="small"
+              checkedChildren="RU"
+              unCheckedChildren="EN"
+              checked={language === Language.English}
+            />
+            <Switch
+              onChange={onChangeTheme}
+              size="small"
+              checkedChildren="☀"
+              unCheckedChildren="☼"
+              checked={themeNow === Theme.Light}
+            />
+          </div>
+        </div>
+      </Header>
+      <LinerProgress isLoading={isProgress} />
+    </div>
   );
 };
