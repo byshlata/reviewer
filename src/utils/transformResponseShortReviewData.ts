@@ -1,4 +1,4 @@
-import { AppSettingsResponseType, ReviewsGetType, ReviewShortType, } from 'types';
+import { AppSettingsResponseType, ReviewsGetType, ReviewShortType } from 'types';
 import { formattedDate } from 'utils';
 
 export const transformResponseShortReviewData = (
