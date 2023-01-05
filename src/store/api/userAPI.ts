@@ -13,7 +13,7 @@ import { changeDataAdminForTable } from 'utils';
 export const userAPI = createApi({
   reducerPath: 'user',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:5050/',
+    baseUrl: process.env.REACT_APP_BASE_URL,
     credentials: 'include',
   }),
   tagTypes: [TagRTKQuery.Review, TagRTKQuery.DeleteReview, TagRTKQuery.User],

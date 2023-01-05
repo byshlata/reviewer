@@ -13,7 +13,7 @@ import {
 export const authAPI = createApi({
   reducerPath: 'auth',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:5050/',
+    baseUrl: process.env.REACT_APP_BASE_URL,
     credentials: 'include',
   }),
   endpoints: builder => ({
