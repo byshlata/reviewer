@@ -8,7 +8,7 @@ import { SearchResponseType } from 'types';
 export const searchAPI = createApi({
   reducerPath: 'search',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://reviewerapp.org/',
+    baseUrl: 'http://localhost:5050/',
     credentials: 'include',
   }),
   tagTypes: [TagRTKQuery.Review, TagRTKQuery.Like, TagRTKQuery.Star],

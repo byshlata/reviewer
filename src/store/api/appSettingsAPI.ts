@@ -6,7 +6,7 @@ import { Empty, ResponseType } from 'types';
 export const appSettingsAPI = createApi({
   reducerPath: 'appSettings',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://reviewerapp.org/',
+    baseUrl: 'http://localhost:5050/',
     credentials: 'include',
   }),
   endpoints: builder => ({
