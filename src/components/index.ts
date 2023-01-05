@@ -71,3 +71,5 @@ export { AuthSocialButton } from './authSocialButton/AuthSocialButton';
 export { AutoCompleteWithButton } from './autoCompleteWithButton/AutoCompleteWithButton';
 
 export { LinerProgress } from './linerProgress/LinerProgress';
+
+export { IconGif } from './iconGif/IconGif';
