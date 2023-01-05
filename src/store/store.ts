@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { appSlice } from './slice/appSlice';
+import { appSlice } from './slice';
 
 import { reviewAPI, searchAPI, userAPI, authAPI, appSettingsAPI } from 'store/api';
 import { accountAdminTableSlice, accountUserTableSlice, authSlice } from 'store/slice';
