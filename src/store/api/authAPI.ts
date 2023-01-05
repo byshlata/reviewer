@@ -13,7 +13,7 @@ import {
 export const authAPI = createApi({
   reducerPath: 'auth',
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_BASE_URL,
+    baseUrl: 'https://reviewerapp.org/',
     credentials: 'include',
   }),
   endpoints: builder => ({

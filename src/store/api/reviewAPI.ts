@@ -27,7 +27,7 @@ import {
 export const reviewAPI = createApi({
   reducerPath: 'review',
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_BASE_URL,
+    baseUrl: 'https://reviewerapp.org/',
     credentials: 'include',
   }),
   tagTypes: [
