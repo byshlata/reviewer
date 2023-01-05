@@ -19,7 +19,13 @@ export const AvatarWithButton = ({
   <div className={style.wrapper}>
     {isAuth ? (
       <>
-        <Avatar size="small" icon={<UserOutlined />} src={avatar} shape="square" />
+        <Avatar
+          className={style.item}
+          size="small"
+          icon={<UserOutlined />}
+          src={avatar}
+          shape="square"
+        />
         <RatingUser rating={rating} />
         <Button type="primary" onClick={onLogout} icon={<LogoutOutlined />} />
       </>
