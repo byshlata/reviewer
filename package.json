@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://byshlata.github.io/reviewer/#",
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
     "@auth0/auth0-react": "^1.12.0",
