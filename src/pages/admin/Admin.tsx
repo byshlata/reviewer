@@ -26,11 +26,10 @@ export const Admin = (): ReactElement => {
   const { columns } = useColumnsAdminTable({
     pathNavigateUserReviews: `${Path.Account}${Path.AccountAdmin}`,
   });
-
-  useGetUsersQuery({});
   const [deleteUsers] = useDeleteUsersMutation({});
   const [changeProperty] = useChangeMutation({});
   const [addCategory] = useAddCategoryMutation({});
+  useGetUsersQuery({});
 
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
 

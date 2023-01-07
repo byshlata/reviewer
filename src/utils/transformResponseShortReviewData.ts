@@ -1,9 +1,9 @@
-import { AppSettingsResponseType, ReviewsGetType, ReviewShortType } from 'types';
+import { ResponseType, ReviewsGetType, ReviewShortType } from 'types';
 import { formattedDate } from 'utils';
 
 export const transformResponseShortReviewData = (
-  response: AppSettingsResponseType & ReviewsGetType<ReviewShortType[]>,
-): AppSettingsResponseType & ReviewsGetType<ReviewShortType[]> => ({
+  response: ResponseType<ReviewsGetType<ReviewShortType[]>>,
+): ResponseType<ReviewsGetType<ReviewShortType[]>> => ({
   reviewsSortData: response.reviewsSortData.map(review => ({
     ...review,
     createdAt: formattedDate(review.createdAt),
@@ -20,4 +20,5 @@ export const transformResponseShortReviewData = (
     updatedAt: formattedDate(review.updatedAt),
   })),
   appSettings: response.appSettings,
+  user: response.user,
 });

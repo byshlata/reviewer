@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 
 import style from './SearchContainer.module.sass';
 
-import { Search } from 'components/search/Search';
+import { Search } from 'components';
 import { Path } from 'enums';
 import { useDebounce } from 'hooks';
-import { useSearchByReviewMutation } from 'store/api/searchAPI';
+import { useSearchByReviewMutation } from 'store';
 
 export const SearchContainer = (): ReactElement => {
   const [searchText, setSearchText] = useState<string>('');
@@ -35,7 +35,7 @@ export const SearchContainer = (): ReactElement => {
       <Search
         value={searchText}
         onSearch={onSearch}
-        resultSearch={result.data}
+        resultSearch={result.data?.searchResult}
         onSelect={onSelect}
         placeholder={t('searchReview')}
       />

@@ -5,8 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { DataReviewType } from 'components/headerReviewPage/types/DataReviewType';
 import { PathAPI } from 'enums';
 import { useParamsSkip } from 'hooks';
-import { ChangeReview } from 'pages/changeReview/ChangeReview';
+import { ChangeReview } from 'pages';
 import { useGetReviewQuery } from 'store';
+import { UndefinedType } from 'types';
 
 export const EditReview = (): ReactElement => {
   const { skip, value } = useParamsSkip();
@@ -17,11 +18,9 @@ export const EditReview = (): ReactElement => {
     },
     { skip },
   );
-
-  // @ts-ignore
-  const dataReview: DataReviewType = data && {
+  const dataReview: UndefinedType<DataReviewType> = data && {
     reviewText: data.review.reviewText,
-    idUser: data.review.id,
+    idUser: data.review.author.id,
     tags: data.review.tags,
     image: data.review.image,
     category: data.review.category,
@@ -32,7 +31,7 @@ export const EditReview = (): ReactElement => {
 
   return (
     <div>
-      {data && (
+      {dataReview && (
         <ChangeReview
           urlRequest={`${PathAPI.EditReview}`}
           titleSuccess={t('successEdit')}

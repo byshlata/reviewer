@@ -1,7 +1,7 @@
-import { Nullable, UndefindType } from 'types';
+import { Nullable, UndefinedType } from 'types';
 
 export type AvatarElementType = {
-  avatar: UndefindType<Nullable<string>>;
-  login?: UndefindType<string>;
-  rating: UndefindType<number>;
+  avatar: UndefinedType<Nullable<string>>;
+  login?: UndefinedType<string>;
+  rating: UndefinedType<number>;
 };

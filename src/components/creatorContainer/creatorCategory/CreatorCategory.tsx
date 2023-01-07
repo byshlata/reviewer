@@ -46,7 +46,7 @@ export const CreatorCategory = ({
       onSaveCallback={onSaveTags}
     >
       <Select
-        style={{ width: '7rem' }}
+        className={style.select}
         value={categoryElement}
         onChange={onCheckCategory}
         options={defaultValue.map(value => ({ value, label: value }))}

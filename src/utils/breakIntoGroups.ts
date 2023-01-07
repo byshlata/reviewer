@@ -1,4 +1,3 @@
 import _ from 'lodash';
 
-export const breakIntoGroups = (array: string[]): string[][] =>
-  _.values(_.groupBy(array));
+export const breakIntoGroups = (array: any[]): any[][] => _.values(_.groupBy(array));

@@ -1,7 +1,7 @@
-import { ReviewResponseType, UndefindType } from 'types';
+import { ReviewResponseType, UndefinedType } from 'types';
 
 export type ReviewType = {
-  data: UndefindType<ReviewResponseType>;
+  data: UndefinedType<ReviewResponseType>;
   isStart: boolean;
   isEdit: boolean;
 };

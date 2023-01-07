@@ -15,3 +15,5 @@ export { AppSettings } from './appSettings';
 export { QueryAPI } from './queryAPI';
 
 export { TagRTKQuery } from './tagRTKQuery';
+
+export { ErrorMessageApp } from './errorMessageApp';

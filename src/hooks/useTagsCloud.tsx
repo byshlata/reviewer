@@ -12,7 +12,6 @@ export const useTagsCloud = (): { tagsOut: TagsCloudType[] } => {
   const [tagsCloudOut, setTagsCloudOut] = useState<TagsCloudType[]>([]);
 
   useEffect(() => {
-    console.log('useEffect');
     if (tags.length !== tagsCloud.length) {
       setTagsCloud(tags);
       setTagsCloudOut(createValueTagsCloud(breakIntoGroups(tags)));

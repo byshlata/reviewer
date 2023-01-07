@@ -1,5 +1,3 @@
-import { AppSettingsType } from 'types/AppSettingsType';
-
 export type { RegistrationType } from './RegistrationType';
 
 export type { Nullable } from './Nullable';
@@ -16,7 +14,7 @@ export type { StatusType } from './StatusType';
 
 export type { RightsType } from './RightsType';
 
-export type { UndefindType } from './UndefindType';
+export type { UndefinedType } from 'types/UndefinedType';
 
 export type { UserResponseType } from './UserResponseType';
 
@@ -73,3 +71,5 @@ export type { UsersSomeResponseType } from './UsersSomeResponseType';
 export type { AdminTableType } from './AdminTableType';
 
 export type { ReviewsGetType } from './ReviewsGetType';
+
+export type { ErrorResponseType } from './ErrorResponseType';

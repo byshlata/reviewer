@@ -1,7 +1,7 @@
-import { ReviewRatingLikeType, UndefindType } from 'types';
+import { ReviewRatingLikeType, UndefinedType } from 'types';
 
 export type RatingLikeContainerType = {
   idReview: string;
   rating: ReviewRatingLikeType;
-  idAuthUser: UndefindType<string>;
+  idAuthUser: UndefinedType<string>;
 };

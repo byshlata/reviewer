@@ -48,7 +48,6 @@ export const HeaderContainer = (): ReactElement => {
   useEffect(() => {
     i18n.changeLanguage(language);
   }, [language]);
-
   const onChangeLanguage = (): void => {
     dispatch(changeLanguageApp());
   };
@@ -73,7 +72,7 @@ export const HeaderContainer = (): ReactElement => {
   };
 
   return (
-    <div style={{ position: 'relative', marginBottom: '1rem' }}>
+    <div className={style.header}>
       <Header>
         <div>
           <ButtonLogo title="Reviewer" onClick={onClickLogo}>
@@ -103,8 +102,8 @@ export const HeaderContainer = (): ReactElement => {
             <Switch
               onChange={onChangeTheme}
               size="small"
-              checkedChildren="☀"
-              unCheckedChildren="☼"
+              checkedChildren={Theme.LightChar}
+              unCheckedChildren={Theme.DarkChar}
               checked={themeNow === Theme.Light}
             />
           </div>

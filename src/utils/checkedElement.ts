@@ -1,1 +1,1 @@
-export const checkedTags = (tags: string[]): string[] => Array.from(new Set(tags));
+export const checkedTags = <T>(tags: T[]): T[] => Array.from(new Set(tags));

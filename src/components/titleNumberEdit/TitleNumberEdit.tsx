@@ -3,8 +3,9 @@ import React, { ReactElement, useState } from 'react';
 import { EditOutlined } from '@ant-design/icons';
 import { Button, InputNumber } from 'antd';
 
-import style from 'components/titleNumberEdit/TitleNumberEdit.module.sass';
-import { TitleNumberEditType } from 'components/titleNumberEdit/types/TitleNumberEditType';
+import style from './TitleNumberEdit.module.sass';
+import { TitleNumberEditType } from './types/TitleNumberEditType';
+
 import { AppSettings } from 'enums';
 import { Nullable } from 'types';
 

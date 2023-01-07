@@ -1,9 +1,9 @@
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement, useCallback } from 'react';
 
 import { Button } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { InformationBlock } from 'components';
 import { TableUser } from 'components/tableUser/TableUser';
@@ -18,20 +18,11 @@ export const AccountStranger = (): ReactElement => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { skip, value } = useParamsSkip();
-  const param = useParams<'value'>();
-  const idUser = param.value as string;
-
   const { data } = useGetDataStrangerUserQuery({ id: value }, { skip });
 
-  useEffect(() => {
-    if (!idUser) {
-      navigate(`${Path.Home}`);
-    }
-  }, [idUser]);
-
-  const onNavigateCreateReviewPage = (): void => {
-    navigate(`${Path.Account}${Path.CreateReview}${Path.Root}${idUser}`);
-  };
+  const onNavigateCreateReviewPage = useCallback((): void => {
+    navigate(`${Path.Account}${Path.CreateReview}${Path.Root}${value}`);
+  }, [value]);
 
   const dataUser = createInformationAbout({
     login: data?.userOther.login,
@@ -44,7 +35,7 @@ export const AccountStranger = (): ReactElement => {
   return (
     <div>
       <div className={style.informationWrapper}>
-        <img src={avatar || ''} alt="avatar" style={{ width: '7rem', height: '7rem' }} />
+        <img src={avatar || ''} alt="avatar" className={style.image} />
         <InformationBlock data={dataUser} />
       </div>
       <Button type="primary" onClick={onNavigateCreateReviewPage}>

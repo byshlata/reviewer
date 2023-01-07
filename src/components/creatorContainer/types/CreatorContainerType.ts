@@ -1,10 +1,5 @@
 import { ReactNode } from 'react';
 
-export type TagType = {
-  value: string;
-  label: string;
-};
-
 export type CreatorContainerType = {
   isEdit: boolean;
   isStart: boolean;

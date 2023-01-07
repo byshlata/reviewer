@@ -1,4 +1,5 @@
 *.css
 *.json
 *.d.ts
+*.test.ts
 *enum

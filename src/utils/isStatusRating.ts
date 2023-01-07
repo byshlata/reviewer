@@ -1,9 +1,9 @@
-import { UndefindType } from 'types';
+import { UndefinedType } from 'types';
 
 type InputType = {
-  idUser: UndefindType<string>;
-  isUsers: string[];
+  idUser: UndefinedType<string>;
+  idUsers: string[];
 };
 
-export const isStatusRating = ({ isUsers, idUser }: InputType): boolean =>
-  idUser ? !!isUsers.find(id => id === idUser) : !idUser;
+export const isStatusRating = ({ idUsers, idUser }: InputType): boolean =>
+  idUsers.indexOf(idUser || '') !== -1;

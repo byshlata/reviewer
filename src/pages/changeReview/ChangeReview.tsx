@@ -17,7 +17,7 @@ import {
   useCreateReviewMutation,
 } from 'store';
 
-const EMPTY_REVIEW_DATA = {
+const EMPTY_REVIEW_DATA: DataReviewType = {
   idUser: '',
   titleAbout: '',
   titleMain: '',
@@ -25,6 +25,7 @@ const EMPTY_REVIEW_DATA = {
   image: '',
   category: '',
   authorAssessment: 0,
+  reviewText: '',
 };
 
 export const ChangeReview = ({
@@ -36,16 +37,7 @@ export const ChangeReview = ({
   const appSettingsCategory = useSelector(selectorAppSettingsCategory);
   const appSettingsTags = useSelector(selectorAppUniqueTags);
   const { t } = useTranslation();
-  const [reviewData, setReviewData] = useState<Omit<DataReviewType, 'reviewText'>>({
-    titleAbout: dataReview.titleAbout,
-    titleMain: dataReview.titleMain,
-    category: dataReview.category,
-    image: dataReview.image,
-    tags: dataReview.tags,
-    idUser: dataReview.idUser,
-    authorAssessment: dataReview.authorAssessment,
-  });
-  const [reviewText, setReviewText] = useState<string>(dataReview.reviewText);
+  const [reviewData, setReviewData] = useState<DataReviewType>(dataReview);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [isSendRequest, setIsSendRequest] = useState<boolean>(false);
   const [status, setStatus] = useState<ResultStatusType>('success');
@@ -61,6 +53,7 @@ export const ChangeReview = ({
       content: t('messageSaveWarning'),
     });
   };
+
   const [createReview, { isLoading, error }] = useCreateReviewMutation();
 
   useEffect(() => {
@@ -84,7 +77,7 @@ export const ChangeReview = ({
   };
 
   const onSaveReviewText = (text: string): void => {
-    setReviewText(text);
+    setReviewData({ ...reviewData, reviewText: text });
   };
 
   const onHomePage = (): void => {
@@ -103,11 +96,10 @@ export const ChangeReview = ({
       reviewData?.category &&
       reviewData?.authorAssessment &&
       reviewData?.tags &&
-      reviewText
+      reviewData?.reviewText
     ) {
-      createReview({ ...reviewData, reviewText, idUser, url: urlRequest, idReview });
+      createReview({ ...reviewData, idUser, url: urlRequest, idReview });
       setReviewData(EMPTY_REVIEW_DATA);
-      setReviewText('');
     } else {
       warning();
     }
@@ -145,7 +137,7 @@ export const ChangeReview = ({
             isEdit
             textButton={t('preview')}
             callback={onSaveReviewText}
-            startText={reviewText}
+            startText={reviewData.reviewText}
           />
           <div style={{ marginTop: '1rem' }}>
             <hr />

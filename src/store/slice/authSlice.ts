@@ -1,55 +1,57 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { StatusUser } from '../../enums';
 import { Nullable, UserType } from '../../types';
-import { authAPI, reviewAPI, userAPI } from '../api';
 
 export type InitStateAuthSliceType = {
   user: Nullable<UserType>;
 };
 
-export const initialStateUserAuthSlice: InitStateAuthSliceType = { user: null };
+export const initialStateUserAuthSlice: InitStateAuthSliceType = {
+  user: null,
+};
 
 export const authSlice = createSlice({
   name: 'authSlice',
   initialState: initialStateUserAuthSlice,
   reducers: {},
   extraReducers: builder => {
-    builder.addMatcher(reviewAPI.endpoints.setLike.matchFulfilled, (state, action) => {
-      if (state.user) {
-        state.user.rating = action.payload.user.rating;
-      }
-    });
+    builder.addMatcher(
+      action => action.type.endsWith('/fulfilled'),
+      (state, action: PayloadAction<{ user: Nullable<UserType> }>) => {
+        if (state.user && action.payload.user) {
+          if (state.user.rights !== action.payload.user.rights) {
+            state.user.rights = action.payload.user.rights;
+          }
+          if (state.user.rating !== action.payload.user.rating) {
+            state.user.rating = action.payload.user.rating;
+          }
+          if (state.user.avatar !== action.payload.user.avatar) {
+            state.user.avatar = action.payload.user.avatar;
+          }
+        }
 
-    builder.addMatcher(authAPI.endpoints.auth.matchFulfilled, (state, action) => {
-      state.user = action.payload.user;
-    });
+        if (
+          !state.user &&
+          action.payload.user &&
+          action.payload.user.status !== StatusUser.Block
+        ) {
+          state.user = action.payload.user;
+        }
 
-    builder.addMatcher(authAPI.endpoints.login.matchFulfilled, (state, action) => {
-      state.user = action.payload.user;
-    });
+        if (state.user && !action.payload.user) {
+          state.user = null;
+        }
+      },
+    );
 
-    builder.addMatcher(authAPI.endpoints.register.matchFulfilled, (state, action) => {
-      state.user = action.payload.user;
-    });
-
-    builder.addMatcher(authAPI.endpoints.authSocial.matchFulfilled, (state, action) => {
-      state.user = action.payload.user;
-    });
-
-    builder.addMatcher(authAPI.endpoints.logout.matchFulfilled, (state, action) => {
-      state.user = action.payload.user;
-    });
-
-    builder.addMatcher(authAPI.endpoints.changeAvatar.matchFulfilled, (state, action) => {
-      if (action.payload) {
-        state.user = action.payload.user;
-      }
-    });
-
-    builder.addMatcher(userAPI.endpoints.change.matchFulfilled, (state, action) => {
-      if (action.payload) {
-        state.user = action.payload.user;
-      }
-    });
+    builder.addMatcher(
+      action => action.type.endsWith('/rejected'),
+      (state, action) => {
+        if (state.user && !action.payload.auth) {
+          state.user = null;
+        }
+      },
+    );
   },
 });

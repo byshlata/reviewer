@@ -1,6 +1,6 @@
-import { UndefindType } from 'types';
+import { UndefinedType } from 'types';
 
 export type RatingUserType = {
-  rating: UndefindType<number>;
+  rating: UndefinedType<number>;
   title?: string;
 };

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { HeaderReviewPage, RatingBlock, TextAreaMarkDown } from 'components';
+import { DataTime, HeaderReviewPage, RatingBlock, TextAreaMarkDown } from 'components';
 import { ReviewType } from 'pages/review/types/ReviewType';
 
 export const Review = ({ data, isStart, isEdit }: ReviewType): ReactElement => (
@@ -17,6 +17,7 @@ export const Review = ({ data, isStart, isEdit }: ReviewType): ReactElement => (
           isStart={isStart}
           isEdit={isEdit}
         />
+        <DataTime data={data.review.createdAt} />
         <RatingBlock
           idReview={data.review.id}
           author={data.review.author}

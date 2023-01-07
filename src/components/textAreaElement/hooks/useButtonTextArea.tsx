@@ -1,19 +1,20 @@
+import React from 'react';
+
 import {
   BoldOutlined,
-  LineHeightOutlined,
-  ItalicOutlined,
-  UnderlineOutlined,
   FileImageOutlined,
+  ItalicOutlined,
+  LineHeightOutlined,
+  UnderlineOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
-import { HelperPopoverType } from 'components/helperPopover/types/HelperPopoverType';
+import { ButtonHelperType } from '../types/ButtonHelperType';
 
-export const createObjTextArea = (): HelperPopoverType[] => {
+export const useButtonTextArea = (): { buttonHelp: ButtonHelperType[] } => {
   const { t } = useTranslation();
-
-  return [
+  const buttonHelp = [
     {
       title: t('helpTextTitle'),
       content: t('helpTextTitleContent'),
@@ -45,4 +46,5 @@ export const createObjTextArea = (): HelperPopoverType[] => {
       icon: <UnorderedListOutlined />,
     },
   ];
+  return { buttonHelp };
 };

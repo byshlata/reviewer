@@ -70,7 +70,7 @@ export const Login = (): React.ReactElement => {
             <Input.Password disabled={isLoadingApp} />
           </Form.Item>
 
-          <Form.Item style={{ width: '100%', height: '100%', margin: '0' }}>
+          <Form.Item className={style.buttonItem}>
             <div className={style.buttonWrapper}>
               <Button type="primary" onClick={onRegister} disabled={isLoadingApp}>
                 {t('singUp')}

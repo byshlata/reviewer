@@ -1,19 +1,24 @@
-import React, { ReactElement } from 'react';
+import React, { memo, ReactElement } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
+import style from './HeaderReviewPage.module.sass';
 import { CreateHeaderReviewPageType } from './types/CreateHeaderReviewPageType';
 
-import { CreatorCategory, CreatorTag, TitleEdit, UploadImage } from 'components';
-import style from 'components/headerReviewPage/HeaderReviewPage.module.sass';
-import { TitleNumberEdit } from 'components/titleNumberEdit/TitleNumberEdit';
+import {
+    CreatorCategory,
+    CreatorTag,
+    TitleEdit,
+    TitleNumberEdit,
+    UploadImage,
+} from 'components';
 import { useElementSize, useHeaderReviewPage } from 'hooks';
 import { selectorTheme } from 'store';
 import { Nullable } from 'types';
 import { checkedTags } from 'utils';
 
-export const HeaderReviewPage = React.memo(
+export const HeaderReviewPage = memo(
   ({
     titleAbout,
     titleMain,
@@ -30,7 +35,6 @@ export const HeaderReviewPage = React.memo(
     const theme = useSelector(selectorTheme);
     const [squareRef, { height }] = useElementSize();
     const { opacity, zIndex, position } = useHeaderReviewPage(isEdit);
-    console.log('HeaderReviewPage');
     const { t } = useTranslation();
 
     const onChangeTitleMain = (titleMainChange: string): void => {

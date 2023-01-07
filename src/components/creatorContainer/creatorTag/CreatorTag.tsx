@@ -9,7 +9,7 @@ import { CreatorType } from '../types/CreatorContainerType';
 import style from './CreatorTag.module.sass';
 
 import { selectorTheme } from 'store';
-import { UndefindType } from 'types';
+import { UndefinedType } from 'types';
 
 export const CreatorTag = ({
   defaultValue,
@@ -21,7 +21,7 @@ export const CreatorTag = ({
   checkTags,
   isStart,
 }: CreatorType): ReactElement => {
-  const [tags, setTags] = useState<UndefindType<string[]>>(checkTags);
+  const [tags, setTags] = useState<UndefinedType<string[]>>(checkTags);
   const theme = useSelector(selectorTheme);
   const onAddTag = (value: string[]): void => {
     setTags(value);
@@ -58,7 +58,7 @@ export const CreatorTag = ({
       onSaveCallback={onSaveTags}
     >
       <Select
-        style={{ width: '7rem' }}
+        className={style.select}
         mode="tags"
         defaultValue={tags?.map(value => value)}
         onChange={onAddTag}

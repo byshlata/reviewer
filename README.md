@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+# Project: Reviewer
+This project  [Reviewer](https://reviewerapp.org).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made on [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+The project uses the API: [Link to API](https://serverreviewer-production.up.railway.app/).
 
-In the project directory, you can run:
+## Technologies used in the work:
+<span>
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"  style="max-width:100%;">
+<img src="https://img.shields.io/badge/TypeScript-20232A?style=for-the-badge&logo=typescript&logoColor=007ACC" alt="TypeScript"  style="max-width:100%;">
+<img src="https://img.shields.io/badge/SASS-20232A?style=for-the-badge&logo=sass&logoColor=1572B6" alt="SASS"  style="max-width:100%;"> 
 
-### `npm start`
+## Libraries used at work:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img src="https://img.shields.io/badge/Redux Toolkit-20232A?style=for-the-badge&logo=redux&logoColor=764ABC" alt="Redux"  style="max-width:100%;">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img src="https://img.shields.io/badge/rtk query-20232A?style=for-the-badge&logo=rtkQuery&logoColor=CA4245" alt="rtk query"  style="max-width:100%;"> 
 
-### `npm test`
+<img src="https://img.shields.io/badge/ant design-20232A?style=for-the-badge&logo=mui&logoColor=1572B6" alt="ant"  style="max-width:100%;">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="https://img.shields.io/badge/lodash-20232A?style=for-the-badge&logo=gh-pages&logoColor=CA4245" alt="lodash"  style="max-width:100%;"> 
 
-### `npm run build`
+<img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" alt="React router"  style="max-width:100%;"> 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="https://img.shields.io/badge/Auth0-20232A?style=for-the-badge&logo=gh-pages&logoColor=CA4245" alt="axios"  style="max-width:100%;"> 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="express"  style="max-width:100%;"> 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white" alt="axios"  style="max-width:100%;"> 
 
-### `npm run eject`
+<img src="https://img.shields.io/badge/react tagcloud-20232A?style=for-the-badge&logo=gh-pages&logoColor=CA4245" alt="react tagcloud"  style="max-width:100%;"> 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img src="https://img.shields.io/badge/i18next-20232A?style=for-the-badge&logo=gh-pages&logoColor=CA4245" alt="i18next"  style="max-width:100%;"> 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="https://img.shields.io/badge/react markdown-20232A?style=for-the-badge&logo=gh-pages&logoColor=CA4245" alt="react markdown"  style="max-width:100%;"> 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img src="https://img.shields.io/badge/react to print-20232A?style=for-the-badge&logo=gh-pages&logoColor=CA4245" alt="react to print"  style="max-width:100%;"> 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Utils used at work:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="https://img.shields.io/badge/eslint-20232A?style=for-the-badge&logo=eslint&logoColor=4B32C3" alt="eslint"  style="max-width:100%;">
+<img src="https://img.shields.io/badge/Prettier-20232A?style=for-the-badge&logo=Prettier&logoColor=F7B93E" alt="Prettier"  style="max-width:100%;">
+</span>

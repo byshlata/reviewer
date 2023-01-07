@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 import style from './Register.module.sass';
 
+import { AuthSocialButton } from 'components';
 import { Path } from 'enums';
 import { useAppDispatch } from 'hooks';
 import { selectorIsProgress, useRegisterMutation } from 'store';
@@ -31,7 +32,12 @@ export const Register = (): React.ReactElement => {
 
   return (
     <div className={style.container}>
-      <Card title={t('createAccount')} bordered={false} style={{ width: 280 }}>
+      <Card
+        title={t('createAccount')}
+        bordered={false}
+        style={{ width: 280 }}
+        extra={<AuthSocialButton />}
+      >
         <Form
           name="register"
           initialValues={{ remember: true }}
@@ -79,7 +85,7 @@ export const Register = (): React.ReactElement => {
             <Input.Password disabled={isLoading} />
           </Form.Item>
 
-          <Form.Item style={{ width: '100%', margin: '0' }}>
+          <Form.Item className={style.buttonItem}>
             <div className={style.buttonWrapper}>
               <Button type="primary" onClick={onLogin} disabled={isLoading}>
                 {t('singIn')}

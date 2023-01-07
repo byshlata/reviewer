@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Language, Theme } from '../../enums';
+import { ErrorMessageApp, Language, Theme } from '../../enums';
 import { themeAppDark, themeAppLight, ThemeAppType } from '../../theme';
-import { AppSettingsType, LanguageType, Nullable } from '../../types';
+import { AppSettingsType, ErrorResponseType, LanguageType, Nullable } from '../../types';
+import { reviewAPI } from '../api';
 
 export type InitialStateAppType = {
   errorMessage: Nullable<string>;
@@ -45,12 +46,24 @@ export const appSlice = createSlice({
         state.isProgress = true;
       },
     );
+    builder.addMatcher(reviewAPI.endpoints.getReview.matchPending, state => {
+      state.isProgress = false;
+    });
 
     builder.addMatcher(
       action => action.type.endsWith('/rejected'),
-      (state, action: PayloadAction<string>) => {
+      (state, action: PayloadAction<{ data: ErrorResponseType }>) => {
         state.isProgress = false;
-        state.errorMessage = action.payload;
+        if (action.type !== 'auth/executeQuery/rejected') {
+          state.errorMessage = action.payload.data.message;
+        }
+
+        if (action.payload.data.auth === false) {
+          state.errorMessage =
+            state.languageApp === Language.Russian
+              ? ErrorMessageApp.MessageAccountRU
+              : ErrorMessageApp.MessageAccountEN;
+        }
       },
     );
 

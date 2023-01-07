@@ -1,5 +1,5 @@
-import { RightsType, UndefindType } from 'types';
+import { RightsType, UndefinedType } from 'types';
 
 export type MenuType = {
-  user: UndefindType<RightsType>;
+  user: UndefinedType<RightsType>;
 };

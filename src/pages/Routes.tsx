@@ -39,14 +39,17 @@ export const Routers = (): ReactElement | null => {
         />
 
         <Route path={`${Path.Login}`} element={isAuth ? HOME : <Login />} />
-        <Route path={`${Path.Account}${Path.Root}${Path.Value}`} element={<Account />} />
+        <Route
+          path={`${Path.Account}${Path.Root}${Path.Value}`}
+          element={isAuth ? <Account /> : HOME}
+        />
         <Route
           path={`${Path.AccountAdmin}${Path.Root}${Path.Value}`}
-          element={<Admin />}
+          element={isAuth ? <Admin /> : HOME}
         />
         <Route
           path={`${Path.Account}${Path.AccountAdmin}${Path.User}${Path.Root}${Path.Value}`}
-          element={<AccountStranger />}
+          element={isAuth ? <AccountStranger /> : HOME}
         />
         <Route path={`${Path.Review}${Path.Root}${Path.Value}`} element={<ReviewId />} />
         <Route path={`${Path.Reviews}`} element={<ReviewQueryParam />} />

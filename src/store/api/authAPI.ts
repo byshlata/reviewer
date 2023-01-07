@@ -7,7 +7,7 @@ import {
   LoginType,
   RegistrationType,
   ResponseType,
-  UndefindType,
+  UndefinedType,
 } from 'types';
 
 export const authAPI = createApi({
@@ -52,7 +52,7 @@ export const authAPI = createApi({
       }),
     }),
 
-    changeAvatar: builder.mutation<UndefindType<ResponseType<Empty>>, { file: File }>({
+    changeAvatar: builder.mutation<UndefinedType<ResponseType<Empty>>, { file: File }>({
       async queryFn({ file }, _queryApi, _extraOptions, fetchWithBQ) {
         const formData = new FormData();
         formData.append('file', file);
@@ -63,7 +63,7 @@ export const authAPI = createApi({
           body: formData,
         });
         if (response.error) throw response.error;
-        const data = response.data as UndefindType<ResponseType<Empty>>;
+        const data = response.data as UndefinedType<ResponseType<Empty>>;
         return response.data ? { data } : { error: response.error };
       },
     }),

@@ -11,7 +11,6 @@ import { selectorBgColor } from 'store/selector/selectorApp';
 
 export const Header = ({ children }: HeaderType): ReactElement => {
   const backgroundColor = useSelector(selectorBgColor);
-
   return (
     <div style={{ background: `${backgroundColor}` }} className={style.header}>
       <div className={mainStyle.container}>

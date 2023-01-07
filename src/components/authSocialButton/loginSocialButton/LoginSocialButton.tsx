@@ -3,6 +3,8 @@ import { ReactElement } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from 'antd';
 
+import style from './LoginSocialButton.module.sass';
+
 import { IconGif } from 'components';
 
 export const LoginSocialButton = (): ReactElement => {
@@ -10,10 +12,10 @@ export const LoginSocialButton = (): ReactElement => {
 
   return (
     <Button
-      style={{ backgroundColor: '#68ead6', width: 'auto', height: 'auto', padding: 2 }}
+      style={{ width: '3rem', height: '3rem' }}
+      className={style.button}
       type="primary"
       icon={<IconGif />}
-      title="rrr"
       onClick={loginWithRedirect}
     />
   );

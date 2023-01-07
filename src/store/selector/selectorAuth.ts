@@ -1,20 +1,21 @@
 import { AppRootStore } from 'store';
-import { Nullable, RightsType, UndefindType } from 'types';
+import { Nullable, RightsType, UndefinedType } from 'types';
 import { createInformationAbout } from 'utils';
 
-export const selectorIsAuth = (state: AppRootStore): UndefindType<string> =>
+export const selectorIsAuth = (state: AppRootStore): UndefinedType<string> =>
   state.authUser.user?.id;
 
-export const selectorUserRights = (state: AppRootStore): UndefindType<RightsType> =>
+export const selectorUserRights = (state: AppRootStore): UndefinedType<RightsType> =>
   state.authUser.user?.rights;
 
-export const selectorUserRating = (state: AppRootStore): UndefindType<number> =>
+export const selectorUserRating = (state: AppRootStore): UndefinedType<number> =>
   state.authUser.user?.rating;
 
-export const selectorUserAvatar = (state: AppRootStore): UndefindType<Nullable<string>> =>
-  state.authUser.user?.avatar;
+export const selectorUserAvatar = (
+  state: AppRootStore,
+): UndefinedType<Nullable<string>> => state.authUser.user?.avatar;
 
-export const selectorUserLogin = (state: AppRootStore): UndefindType<string> =>
+export const selectorUserLogin = (state: AppRootStore): UndefinedType<string> =>
   state.authUser.user?.login;
 
 export const selectorUserShortInformation = (state: AppRootStore): [string, string][] =>

@@ -58,8 +58,6 @@ export { Search } from './search/Search';
 
 export { SearchContainer } from './searchContainer/SearchContainer';
 
-export { DarkThemeBackground } from './darkThemeBackground/DarkThemeBackground';
-
 export { TextAreaElement } from './textAreaElement/TextAreaElement';
 
 export { Comment } from './comment/Comment';
@@ -73,3 +71,7 @@ export { AutoCompleteWithButton } from './autoCompleteWithButton/AutoCompleteWit
 export { LinerProgress } from './linerProgress/LinerProgress';
 
 export { IconGif } from './iconGif/IconGif';
+
+export { HelperPopover } from './helperPopover/HelperPopover';
+
+export { TitleNumberEdit } from './titleNumberEdit/TitleNumberEdit';

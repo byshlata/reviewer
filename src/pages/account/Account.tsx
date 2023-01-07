@@ -1,10 +1,10 @@
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement, useCallback } from 'react';
 
 import { Button } from 'antd';
 import { RcFile } from 'antd/es/upload/interface';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { InformationBlock, UploadAvatar } from 'components';
 import { TableUser } from 'components/tableUser/TableUser';
@@ -28,26 +28,16 @@ export const Account = (): ReactElement => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { skip, value } = useParamsSkip();
-  const param = useParams<'value'>();
-  const idUser = param.value as string;
-
+  const [updateAvatar] = useChangeAvatarMutation({});
   useGetUserReviewsQuery({ id: value }, { skip });
 
-  const [updateAvatar] = useChangeAvatarMutation({});
+  const onNavigateCreateReviewPage = useCallback((): void => {
+    navigate(`${Path.Account}${Path.CreateReview}${Path.Root}${value}`);
+  }, [value]);
 
-  useEffect(() => {
-    if (!idUser) {
-      navigate(`${Path.Home}`);
-    }
-  }, [idUser]);
-
-  const onNavigateCreateReviewPage = (): void => {
-    navigate(`${Path.Account}${Path.CreateReview}${Path.Root}${idUser}`);
-  };
-
-  const onChangeAvatar = (file: RcFile): void => {
+  const onChangeAvatar = useCallback((file: RcFile): void => {
     updateAvatar({ file });
-  };
+  }, []);
 
   return (
     <div>
@@ -62,7 +52,7 @@ export const Account = (): ReactElement => {
       <Button type="primary" onClick={onNavigateCreateReviewPage}>
         {t('createReview')}
       </Button>
-      <div>{dataTable.length ? <TableUser data={dataTable} /> : null}</div>
+      <div>{dataTable.length && <TableUser data={dataTable} />}</div>
     </div>
   );
 };

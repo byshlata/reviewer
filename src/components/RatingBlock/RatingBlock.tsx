@@ -3,17 +3,10 @@ import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 
 import style from './RatingBlock.module.sass';
+import { RatingBlockType } from './types/RatingBlockType';
 
 import { AvatarElement, RatingLikeContainer, RatingStarContainer } from 'components';
 import { selectorIsAuth } from 'store';
-import { ReviewRatingLikeType, ReviewRatingStarType, UserType } from 'types';
-
-type RatingBlockType = {
-  idReview: string;
-  author: UserType;
-  ratingLike: ReviewRatingLikeType;
-  ratingStar: ReviewRatingStarType;
-};
 
 export const RatingBlock = ({
   ratingLike,

@@ -1,9 +1,9 @@
 import { Language, Theme } from 'enums';
 import { InitialStateAppType } from 'store';
 import { themeAppDark, themeAppLight } from 'theme';
-import { LanguageType, ThemeType, UndefindType } from 'types';
+import { LanguageType, ThemeType, UndefinedType } from 'types';
 
-export const loadStateApp = (): UndefindType<InitialStateAppType> => {
+export const loadStateApp = (): UndefinedType<InitialStateAppType> => {
   const themeApp = localStorage.getItem('themeApp');
   const languageApp = localStorage.getItem('languageApp');
   const appInitialState: InitialStateAppType = {

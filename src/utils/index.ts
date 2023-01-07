@@ -1,10 +1,6 @@
-export { setErrorResponse } from './setErrorResponse';
-
 export { checkedTags } from './checkedElement';
 
 export { loadStateApp } from './localStorageHelper';
-
-export { createObjTextArea } from './createObjTextArea';
 
 export { knowPathManeMenu } from './knowPathManeMenu';
 
@@ -15,8 +11,6 @@ export { beforeUpload } from './beforeUpload';
 export { createInformationAbout } from './createInformationAbout';
 
 export { createKeys } from './createKeys';
-
-export { uppercaseFirstChar } from './uppercaseFirstChar';
 
 export { createValueTagsCloud } from './createValueTagsCloud';
 
@@ -39,7 +33,5 @@ export { createDataDeleteById } from './createDataDeleteById';
 export { transformResponseReviewData } from './transformResponseReviewData';
 
 export { changeDataAdminForTable } from './changeDataAdminForTable';
-
-export { createUniqueTags } from './createUniqueTags';
 
 export { isCategory } from './isCategory';

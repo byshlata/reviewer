@@ -3,6 +3,7 @@ import React, { ChangeEvent, ReactElement, useRef, useState } from 'react';
 import { PrinterOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { useReactToPrint } from 'react-to-print';
 
 import style from './ReviewId.module.sass';
@@ -10,9 +11,10 @@ import style from './ReviewId.module.sass';
 import { Comment, TextAreaElement } from 'components';
 import { useParamsSkip } from 'hooks';
 import { Review } from 'pages';
-import { useCreateCommentMutation, useGetReviewQuery } from 'store';
+import { selectorIsAuth, useCreateCommentMutation, useGetReviewQuery } from 'store';
 
 export const ReviewId = (): ReactElement => {
+  const isAuth = useSelector(selectorIsAuth);
   const [textComment, setTextComment] = useState<string>('');
   const { t } = useTranslation();
   const { skip, value } = useParamsSkip();
@@ -40,7 +42,6 @@ export const ReviewId = (): ReactElement => {
       createComment({ text: textComment, idReview: value });
     }
   };
-
   return (
     <div>
       <div ref={componentRef}>
@@ -50,14 +51,15 @@ export const ReviewId = (): ReactElement => {
         <Button type="primary" onClick={handlePrint} icon={<PrinterOutlined />} />
       </div>
 
-      <div className={style.textAreaWrapper}>
-        <div className={style.title}>{t('leaveComment')}:</div>
-        <TextAreaElement text={textComment} onChangeText={onChangeComment} />
-
-        <Button type="primary" onClick={onSendComment} disabled={isLoading}>
-          {t('sendComment')}
-        </Button>
-      </div>
+      {isAuth && (
+        <div className={style.textAreaWrapper}>
+          <div className={style.title}>{t('leaveComment')}:</div>
+          <TextAreaElement text={textComment} onChangeText={onChangeComment} />
+          <Button type="primary" onClick={onSendComment} disabled={isLoading}>
+            {t('sendComment')}
+          </Button>
+        </div>
+      )}
 
       <ol style={{ padding: 0 }}>
         {data?.review.comments.map(({ text, author, _id, createdAt }) => (

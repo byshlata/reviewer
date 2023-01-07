@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 
-import { UndefindType } from 'types';
+import { UndefinedType } from 'types';
 
 export type SearchType = {
   value: string;
   placeholder: string;
-  resultSearch: UndefindType<{ value: string; label: string | ReactNode }[]>;
+  resultSearch: UndefinedType<{ value: string; label: string | ReactNode }[]>;
   onSearch: (value: string) => void;
   onSelect: (value: string) => void;
 };

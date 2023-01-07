@@ -17,7 +17,7 @@ export const RatingStarContainer = memo(
       }
     };
     const disable =
-      isStatusRating({ idUser: idAuthUser, isUsers: rating.idUsers }) || isLoading;
+      isStatusRating({ idUser: idAuthUser, idUsers: rating.idUsers }) || isLoading;
 
     return (
       <RatingStar

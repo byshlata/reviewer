@@ -36,7 +36,6 @@ export const useColumnsUserTable = ({
       title: `${t('titleMain')}`,
       dataIndex: 'titleMain',
       sorter: (a, b) => a.titleMain.localeCompare(b.titleMain),
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       render: (text, record: { key: React.Key }) => (
         <Button
           type="link"

@@ -1,11 +1,11 @@
-import React, { ReactElement } from 'react';
+import React, { memo, ReactElement } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
 import style from './ImformationBlock.module.sass';
 import { InformationBlocType } from './types/InformationBlocType';
 
-export const InformationBlock = ({ data }: InformationBlocType): ReactElement => {
+export const InformationBlock = memo(({ data }: InformationBlocType): ReactElement => {
   const { t } = useTranslation();
   return (
     <div className={style.wrapper}>
@@ -17,4 +17,4 @@ export const InformationBlock = ({ data }: InformationBlocType): ReactElement =>
       ))}
     </div>
   );
-};
+});

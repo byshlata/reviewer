@@ -7,8 +7,6 @@ import style from './Page404.module.sass';
 
 import { Path } from 'enums';
 
-const TEXT = "Oops. The page you're looking for doesn't exist.";
-
 export const Page404 = (): ReactElement => {
   const navigate = useNavigate();
 
@@ -38,7 +36,6 @@ export const Page404 = (): ReactElement => {
         </div>
         <div className={style.number}>4</div>
       </div>
-      <div className={style.text}>{TEXT}</div>
       <div className={style.buttonWrapper}>
         <Button type="primary" onClick={onRoot}>
           Go to back

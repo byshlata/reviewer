@@ -9,7 +9,7 @@ import { isStatusRating } from 'utils';
 export const RatingLikeContainer = memo(
   ({ rating, idAuthUser, idReview }: RatingLikeContainerType): ReactElement => {
     const [setLike, { isLoading }] = useSetLikeMutation();
-    const isLikeStatus = isStatusRating({ idUser: idAuthUser, isUsers: rating.idUsers });
+    const isLikeStatus = isStatusRating({ idUser: idAuthUser, idUsers: rating.idUsers });
     const onChangeLike = (): void => {
       if (idAuthUser) {
         setLike({ idReview });

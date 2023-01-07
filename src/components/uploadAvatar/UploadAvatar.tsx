@@ -8,7 +8,7 @@ import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 import { UploadAvatarType } from './types/UploadAvatarType';
 import style from './UploadAvatar.module.sass';
 
-import { Nullable, UndefindType } from 'types';
+import { Nullable, UndefinedType } from 'types';
 import { beforeUpload, getBase64 } from 'utils';
 
 export const UploadAvatar = ({
@@ -17,7 +17,7 @@ export const UploadAvatar = ({
   avatar,
 }: UploadAvatarType): ReactElement => {
   const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState<UndefindType<Nullable<string>>>(avatar);
+  const [imageUrl, setImageUrl] = useState<UndefinedType<Nullable<string>>>(avatar);
   const [file, setFile] = useState<RcFile>();
 
   useEffect(() => {

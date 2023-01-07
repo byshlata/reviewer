@@ -16,9 +16,11 @@ import { TagsCloudType } from 'types';
 
 export const Home = (): ReactElement => {
   const theme = useSelector(selectorTheme);
+
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { tagsOut } = useTagsCloud();
+
   useAuthSocial();
 
   const { data } = useGetReviewsParamsQuery(

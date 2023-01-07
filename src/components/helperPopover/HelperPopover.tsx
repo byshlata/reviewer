@@ -21,5 +21,3 @@ export const HelperPopover = ({
     </Button>
   </Popover>
 );
-
-export default HelperPopover;

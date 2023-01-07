@@ -3,7 +3,6 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { DataReviewType } from 'components/headerReviewPage/types/DataReviewType';
 import { PathAPI, TagRTKQuery } from 'enums';
 import {
-  AppSettingsResponseType,
   DataCommentType,
   DataTableUserType,
   Empty,
@@ -17,7 +16,7 @@ import {
   ReviewsSomeResponseType,
   ReviewUserTableType,
   StarType,
-  UndefindType,
+  UndefinedType,
   UserType,
 } from 'types';
 import {
@@ -41,7 +40,7 @@ export const reviewAPI = createApi({
   ],
   endpoints: builder => ({
     createReview: builder.mutation<
-      UndefindType<ResponseType<Empty>>,
+      UndefinedType<ResponseType<Empty>>,
       DataReviewType & { url: string } & { idReview?: string }
     >({
       async queryFn(
@@ -84,7 +83,7 @@ export const reviewAPI = createApi({
           body: formData,
         });
         if (response.error) throw response.error;
-        const data = response.data as UndefindType<ResponseType<Empty>>;
+        const data = response.data as UndefinedType<ResponseType<Empty>>;
         return response.data ? { data } : { error: response.error };
       },
       invalidatesTags: [TagRTKQuery.Review, TagRTKQuery.DeleteReview],
@@ -180,7 +179,7 @@ export const reviewAPI = createApi({
     }),
 
     getReviewsParams: builder.query<
-      AppSettingsResponseType & ReviewsGetType<ReviewShortType[]>,
+      ResponseType<ReviewsGetType<ReviewShortType[]>>,
       {
         count?: number;
         rating?: Nullable<string>;
@@ -192,9 +191,8 @@ export const reviewAPI = createApi({
         url: `${PathAPI.Reviews}`,
         params: { rating, data, count, tag },
       }),
-      transformResponse: (
-        response: AppSettingsResponseType & ReviewsGetType<ReviewShortType[]>,
-      ) => transformResponseShortReviewData(response),
+      transformResponse: (response: ResponseType<ReviewsGetType<ReviewShortType[]>>) =>
+        transformResponseShortReviewData(response),
       providesTags: [TagRTKQuery.Like, TagRTKQuery.Star],
     }),
 
@@ -202,7 +200,7 @@ export const reviewAPI = createApi({
       query: ({ id }) => `${PathAPI.Review}${PathAPI.Root}${id}`,
       transformResponse: (response: ResponseType<ReviewResponseType>) =>
         transformResponseReviewData(response),
-      providesTags: [TagRTKQuery.Like, TagRTKQuery.Star],
+      providesTags: [TagRTKQuery.Like, TagRTKQuery.Star, TagRTKQuery.Review],
     }),
   }),
 });
