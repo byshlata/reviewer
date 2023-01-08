@@ -54,6 +54,7 @@ export const PreviewReview = ({ dataReview }: PreviewReviewType): ReactElement =
               </div>
             </div>
             <DataTime data={createdAt} />
+
             <RatingBlock
               idReview={id}
               author={author}

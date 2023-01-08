@@ -63,14 +63,7 @@ export const ReviewId = (): ReactElement => {
 
       <ol style={{ padding: 0 }}>
         {data?.review.comments.map(({ text, author, _id, createdAt }) => (
-          <Comment
-            key={_id}
-            text={text}
-            avatarAuthor={author.avatar}
-            loginAuthor={author.login}
-            data={createdAt}
-            ratingAuthor={author.rating}
-          />
+          <Comment key={_id} text={text} author={author} data={createdAt} />
         ))}
       </ol>
     </div>

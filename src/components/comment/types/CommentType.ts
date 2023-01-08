@@ -1,7 +1,7 @@
+import { UserType } from 'types';
+
 export type CommentType = {
   text: string;
-  avatarAuthor: string;
-  loginAuthor: string;
-  ratingAuthor: number;
+  author: UserType;
   data: string;
 };

@@ -6,6 +6,7 @@ describe('Count element array', () => {
   const three = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
   const four = [4, 2, 3, 2, 4, 3, 1, 3, 4, 4];
 
+
   test('Element should be your array', () => {
     expect(breakIntoGroups(one)).toEqual([]);
     expect(breakIntoGroups(two)).toEqual([[1]]);

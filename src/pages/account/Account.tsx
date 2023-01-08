@@ -52,7 +52,7 @@ export const Account = (): ReactElement => {
       <Button type="primary" onClick={onNavigateCreateReviewPage}>
         {t('createReview')}
       </Button>
-      <div>{dataTable.length && <TableUser data={dataTable} />}</div>
+      <div>{dataTable.length ? <TableUser data={dataTable} /> : null}</div>
     </div>
   );
 };

@@ -5,15 +5,11 @@ import { CommentType } from './types/CommentType';
 
 import { AvatarElement } from 'components/avatarElement/AvatarElement';
 
-export const Comment = ({
-  data,
-  avatarAuthor,
-  loginAuthor,
-  text,
-  ratingAuthor,
-}: CommentType): ReactElement => (
+export const Comment = ({ data, author, text }: CommentType): ReactElement => (
   <li className={style.containerComment}>
-    <AvatarElement avatar={avatarAuthor} login={loginAuthor} rating={ratingAuthor} />
+    {author && (
+      <AvatarElement avatar={author.avatar} login={author.login} rating={author.rating} />
+    )}
     <div className={style.dataItem}>{data}</div>
     <article>{text}</article>
   </li>

@@ -18,22 +18,24 @@ export const RatingBlock = ({
 
   return (
     <div className={style.wrapper}>
-      <div className={style.item}>
-        <div className={style.itemWrapper}>
-          <AvatarElement
-            avatar={author.avatar}
-            login={author.login}
-            rating={author.rating}
-          />
-          <div className={style.item}>
-            <RatingLikeContainer
-              rating={ratingLike}
-              idReview={idReview}
-              idAuthUser={idAuthUser}
+      {author && (
+        <div className={style.item}>
+          <div className={style.itemWrapper}>
+            <AvatarElement
+              avatar={author.avatar}
+              login={author.login}
+              rating={author.rating}
             />
+            <div className={style.item}>
+              <RatingLikeContainer
+                rating={ratingLike}
+                idReview={idReview}
+                idAuthUser={idAuthUser}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
       <div className={style.item}>
         <RatingStarContainer
           rating={ratingStar}
