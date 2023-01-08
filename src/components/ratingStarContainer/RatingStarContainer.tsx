@@ -10,12 +10,15 @@ export const RatingStarContainer = memo(
   ({ rating, idAuthUser, idReview }: RatingStarContainerType): ReactElement => {
     const [setStar, { isLoading }] = useSetStarMutation();
     const onChangeRating = (numberStar: number): void => {
-      if (numberStar === 0) {
-        setStar({ numberStar: 5, idReview });
-      } else {
-        setStar({ numberStar, idReview });
+      if (idAuthUser) {
+        if (numberStar === 0) {
+          setStar({ numberStar: 5, idReview });
+        } else {
+          setStar({ numberStar, idReview });
+        }
       }
     };
+
     const disable =
       isStatusRating({ idUser: idAuthUser, idUsers: rating.idUsers }) || isLoading;
 
