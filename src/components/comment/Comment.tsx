@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
 
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+
 import style from './Comment.module.sass';
 import { CommentType } from './types/CommentType';
 
@@ -11,6 +13,6 @@ export const Comment = ({ data, author, text }: CommentType): ReactElement => (
       <AvatarElement avatar={author.avatar} login={author.login} rating={author.rating} />
     )}
     <div className={style.dataItem}>{data}</div>
-    <article>{text}</article>
+    <ReactMarkdown>{text}</ReactMarkdown>
   </li>
 );
