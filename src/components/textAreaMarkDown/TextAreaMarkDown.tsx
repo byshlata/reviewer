@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactElement, useState } from 'react';
+import React, { ChangeEvent, ReactElement, useEffect, useState } from 'react';
 
 import { EditOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
@@ -18,6 +18,12 @@ export const TextAreaMarkDown = ({
 }: TextAreaMarkDownType): ReactElement => {
   const [isOpen, setIsOpen] = useState<boolean>(isStart);
   const [text, setText] = useState<string>(startText || '');
+
+  useEffect(() => {
+    if (startText) {
+      setText(startText);
+    }
+  }, [startText]);
 
   const onChangeText = (value: ChangeEvent<HTMLTextAreaElement>): void => {
     setText(value.currentTarget.value);
