@@ -44,14 +44,5 @@ export const authSlice = createSlice({
         }
       },
     );
-
-    builder.addMatcher(
-      action => action.type.endsWith('/rejected'),
-      (state, action) => {
-        if (state.user && !action.payload.auth) {
-          state.user = null;
-        }
-      },
-    );
   },
 });
