@@ -23,14 +23,11 @@ export const Home = (): ReactElement => {
 
   useAuthSocial();
 
-  const { data } = useGetReviewsParamsQuery(
-    {
-      count: AppSettings.CountStartHomePageReview,
-      data: AppSettings.SortUp.toString(),
-      rating: AppSettings.SortUp.toString(),
-    },
-    { pollingInterval: 10000 },
-  );
+  const { data } = useGetReviewsParamsQuery({
+    count: AppSettings.CountStartHomePageReview,
+    data: AppSettings.SortUp.toString(),
+    rating: AppSettings.SortUp.toString(),
+  });
 
   const onClickTag = (tag: TagsCloudType): void => {
     navigate(`${Path.Reviews}?${QueryAPI.Tag}=${tag.value}`);

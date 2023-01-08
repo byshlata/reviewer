@@ -12,7 +12,7 @@ const audience = process.env.REACT_APP_AUTH0_AUDIENCE as string;
 export const Auth0ProviderWithNavigate = ({ children }: any): ReactElement => {
   const navigate = useNavigate();
   const onRedirectCallback = (): any => {
-    navigate(`${Path.Account}`);
+    navigate(`${Path.Home}`);
   };
 
   return (
