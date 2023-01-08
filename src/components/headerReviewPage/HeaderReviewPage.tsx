@@ -7,11 +7,11 @@ import style from './HeaderReviewPage.module.sass';
 import { CreateHeaderReviewPageType } from './types/CreateHeaderReviewPageType';
 
 import {
-    CreatorCategory,
-    CreatorTag,
-    TitleEdit,
-    TitleNumberEdit,
-    UploadImage,
+  CreatorCategory,
+  CreatorTag,
+  TitleEdit,
+  TitleNumberEdit,
+  UploadImage,
 } from 'components';
 import { useElementSize, useHeaderReviewPage } from 'hooks';
 import { selectorTheme } from 'store';
