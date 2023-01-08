@@ -24,7 +24,7 @@ export const ReviewId = (): ReactElement => {
     {
       id: value,
     },
-    { skip, pollingInterval: 2000 },
+    { skip, pollingInterval: 5000 },
   );
 
   const [createComment, { isLoading }] = useCreateCommentMutation();
@@ -36,7 +36,7 @@ export const ReviewId = (): ReactElement => {
   const onChangeComment = (text: ChangeEvent<HTMLTextAreaElement>): void => {
     setTextComment(text.currentTarget.value);
   };
-
+  console.log(data);
   const onSendComment = (): void => {
     if (textComment) {
       createComment({ text: textComment, idReview: value });

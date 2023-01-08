@@ -32,7 +32,9 @@ export const TextAreaMarkDown = ({
 
   return (
     <div className={style.textAreaWrapper}>
-      {isOpen ? <TextAreaElement text={text} onChangeText={onChangeText} /> : null}
+      {isOpen ? (
+        <TextAreaElement text={startText || text} onChangeText={onChangeText} />
+      ) : null}
       {isEdit && (
         <div style={{ marginTop: '1rem' }}>
           {!isOpen ? (
@@ -46,7 +48,7 @@ export const TextAreaMarkDown = ({
       )}
 
       <div className={style.textArea}>
-        <ReactMarkdown>{text}</ReactMarkdown>
+        <ReactMarkdown>{startText || text}</ReactMarkdown>
       </div>
     </div>
   );
